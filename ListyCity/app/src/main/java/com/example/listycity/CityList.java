@@ -33,7 +33,41 @@ public class CityList {
         return list;
     }
 
+    /**
+     * This returns a boolean (false if it doesn't have the city, true if it does have the city)
+     * @param city
+     *      This is a city we want to check if it's in the list
+     * @return
+     * Return boolean
+     */
     public boolean hasCity(City city) {
+        for (City c : cities) {
+            if (c.equals(city)) {
+                return c.equals(city);
+            }
+        }
+        return false;
+    }
+    /**
+     * This removes a city from the list
+     * @param city
+     *      This is a city we want to remove from the list
+     */
+    public void deleteCity(City city) {
+        if (hasCity(city)) {
+            cities.remove(city);
+        }
+        else {
+            throw new IllegalArgumentException();
+        }
+    }
 
+    /**
+     * This returns how many cities are in the list
+     * @return int
+     *      This is the number of cities in the list
+     */
+    public int countCities() {
+        return cities.size();
     }
 }
